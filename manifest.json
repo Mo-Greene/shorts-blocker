@@ -1,0 +1,32 @@
+{
+  "manifest_version": 3,
+  "name": "YouTube Shorts Blocker",
+  "version": "1.0.1",
+  "description": "Hide YouTube Shorts and block /shorts navigation.",
+  "permissions": ["storage", "tabs"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "icons": {
+    "16": "icon/blocker.png",
+    "32": "icon/blocker.png",
+    "48": "icon/blocker.png",
+    "128": "icon/blocker.png"
+  },
+  "action": {
+    "default_title": "YouTube Shorts Blocker",
+    "default_icon": {
+      "16": "icon/blocker.png",
+      "32": "icon/blocker.png",
+      "48": "icon/blocker.png",
+      "128": "icon/blocker.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.youtube.com/*", "https://youtube.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
